@@ -69,7 +69,7 @@ class BindingAdapters {
                 Glide.with(view.context)
                     .load(url)
                     .placeholder(R.drawable.image)
-                    .transform(CenterCrop(), RoundedCorners(20))
+                    .transform(CenterCrop(), RoundedCorners(42))
                     .error(R.drawable.broken_image)
                     .into(view)
             } catch (e: Exception) {
