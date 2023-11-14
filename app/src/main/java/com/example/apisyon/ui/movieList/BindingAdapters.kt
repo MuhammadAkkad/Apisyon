@@ -1,4 +1,4 @@
-package com.example.apisyon.ui
+package com.example.apisyon.ui.movieList
 
 import android.content.res.ColorStateList
 import android.view.View

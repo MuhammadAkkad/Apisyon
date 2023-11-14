@@ -1,4 +1,4 @@
-package com.example.apisyon.ui
+package com.example.apisyon.ui.movieList
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.apisyon.ui.model.MovieModel
 import com.example.apisyon.databinding.ItemMovieBinding
 
-class MovieAdapter :
+class MovieAdapter(
+    val onItemClicked:(MovieModel) -> Unit
+) :
     PagingDataAdapter<MovieModel, MovieAdapter.MovieViewHolder>(MovieDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -21,6 +23,9 @@ class MovieAdapter :
         val movie = getItem(position)
         if (movie != null) {
             holder.bind(movie)
+            holder.itemView.setOnClickListener {
+                onItemClicked(movie)
+            }
         }
     }
 

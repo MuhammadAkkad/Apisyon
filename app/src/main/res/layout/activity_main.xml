@@ -16,23 +16,15 @@
         app:titleCentered="true"
         app:titleTextAppearance="@style/Toolbar.TitleText" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/movieRv"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:layout_width="match_parent"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_below="@id/toolbar"
-        android:layout_above="@id/layout_button_add"
-        android:clipToPadding="false"
-        android:paddingTop="32dp"
-        android:paddingBottom="32dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/app_nav" />
 
-    </androidx.recyclerview.widget.RecyclerView>
 
-    <include
-        android:id="@+id/layout_button_add"
-        layout="@layout/layout_button_add"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

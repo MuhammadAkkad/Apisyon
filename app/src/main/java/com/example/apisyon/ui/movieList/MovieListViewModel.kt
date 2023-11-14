@@ -1,4 +1,4 @@
-package com.example.apisyon.ui
+package com.example.apisyon.ui.movieList
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -15,7 +15,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MovieViewModel @Inject constructor(private val repository: MovieRepositoryImpl) :
+class MovieListViewModel @Inject constructor(private val repository: MovieRepositoryImpl) :
     ViewModel() {
 
     val movies: LiveData<PagingData<MovieModel>> = Pager(
