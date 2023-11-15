@@ -19,11 +19,11 @@ class MovieRepositoryImpl @Inject constructor(
         return apiService.getPopularMovies(API_KEY, page)
     }
 
-    override suspend fun getLocalMovies(page: Int): MovieDto? {
+    override suspend fun getOfflinePopularMovies(page: Int): MovieDto? {
         return appDatabase.movieDao().getMovies(page)
     }
 
-    override suspend fun saveDataToDb(movies: MovieDto?) {
+    override suspend fun saveMoviesToDb(movies: MovieDto?) {
         movies?.let { appDatabase.movieDao().insertMovies(it) }
     }
 }

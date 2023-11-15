@@ -16,7 +16,4 @@ interface MovieDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovies(movies: MovieDto)
 
-    @Query("DELETE FROM movies")
-    suspend fun nukeTable()
-
 }

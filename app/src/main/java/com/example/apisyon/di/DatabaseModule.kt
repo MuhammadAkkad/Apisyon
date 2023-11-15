@@ -25,7 +25,7 @@ object DatabaseModule {
     }
 
     @Provides
-    fun provideShipDao(database: AppDatabase): MovieDao {
+    fun provideMovieDao(database: AppDatabase): MovieDao {
         return database.movieDao()
     }
 

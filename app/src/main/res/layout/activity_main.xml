@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentTop="true"
-        app:title="MovieLIST"
+        app:title="@string/movie_list"
         app:titleCentered="true"
         app:titleTextAppearance="@style/Toolbar.TitleText" />
 

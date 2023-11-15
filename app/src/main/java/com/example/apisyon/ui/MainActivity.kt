@@ -8,13 +8,21 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private var _binding: ActivityMainBinding? = null
+
+    private val binding get() = _binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        setSupportActionBar(binding.toolbar)
+        _binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
+        setSupportActionBar(binding?.toolbar)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // prevent memory leak.
+        _binding = null
     }
 
 }

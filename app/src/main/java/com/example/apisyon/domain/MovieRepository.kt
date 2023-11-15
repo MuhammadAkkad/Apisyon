@@ -5,6 +5,6 @@ import retrofit2.Response
 
 interface MovieRepository {
     suspend fun getPopularMovies(page: Int): Response<MovieDto>?
-    suspend fun getLocalMovies(page: Int): MovieDto?
-    suspend fun saveDataToDb(movies: MovieDto?)
+    suspend fun getOfflinePopularMovies(page: Int): MovieDto?
+    suspend fun saveMoviesToDb(movies: MovieDto?)
 }

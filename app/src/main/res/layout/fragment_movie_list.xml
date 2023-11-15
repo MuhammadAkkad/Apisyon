@@ -11,8 +11,8 @@
         android:layout_height="match_parent"
         android:layout_above="@id/layout_button_add"
         android:clipToPadding="false"
-        android:paddingTop="32dp"
-        android:paddingBottom="32dp">
+        android:paddingTop="@dimen/list_margin"
+        android:paddingBottom="@dimen/list_margin">
 
     </androidx.recyclerview.widget.RecyclerView>
 

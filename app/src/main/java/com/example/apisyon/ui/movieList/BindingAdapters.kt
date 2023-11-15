@@ -17,7 +17,7 @@ class BindingAdapters {
 
         @BindingAdapter("android:rankTint")
         @JvmStatic
-        fun setRankColor(view: View, color: MovieGrade) {
+        fun rankTint(view: View, color: MovieGrade) {
             try {
                 when (color) {
                     MovieGrade.LOW -> {
@@ -42,7 +42,7 @@ class BindingAdapters {
 
         @BindingAdapter("android:rankTextTint")
         @JvmStatic
-        fun setRankColor(view: TextView, color: MovieGrade) {
+        fun rankTextTint(view: TextView, color: MovieGrade) {
             try {
                 when (color) {
                     MovieGrade.LOW -> {

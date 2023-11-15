@@ -21,21 +21,11 @@ class NetworkModule {
     fun provideRetrofit(): Retrofit {
 
         val gson = GsonBuilder()
-            .setLenient()
             .create()
-
-        /*val loggingInterceptor = HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
-        }
-
-        val client = OkHttpClient.Builder()
-            .addInterceptor(loggingInterceptor)
-            .build()*/
 
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create(gson))
             .baseUrl(Base_URL)
-            //.client(client)
             .build()
     }
 

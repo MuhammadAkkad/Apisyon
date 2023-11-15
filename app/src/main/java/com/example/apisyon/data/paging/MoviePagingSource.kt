@@ -23,18 +23,19 @@ class MoviePagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MovieModel> {
         return try {
             val position = params.key ?: 1
+
             if (!isNetworkAvailable()) {
                 getDataFromDb(position)
             } else {
                 getDataFromApi(position)
             }
+
         } catch (e: Exception) {
             LoadResult.Error(e)
         }
     }
 
     override fun getRefreshKey(state: PagingState<Int, MovieModel>): Int? {
-
         return state.anchorPosition?.let {
             state.closestPageToPosition(it)?.prevKey?.plus(1)
                 ?: state.closestPageToPosition(it)?.nextKey?.minus(1)
@@ -49,9 +50,9 @@ class MoviePagingSource(
             saveDataToDB(movies)
 
             LoadResult.Page(
-                data = movieList.body()!!.toMovieModels(),
+                data = movies!!.toMovieModels(),
                 prevKey = if (position == 1) null else (position - 1),
-                nextKey = if (position == movieList.body()!!.results.size) null else (position + 1)
+                nextKey = if (position == movies.results.size) null else (position + 1)
             )
 
         } else {
@@ -60,7 +61,7 @@ class MoviePagingSource(
     }
 
     private suspend fun getDataFromDb(position: Int): LoadResult<Int, MovieModel> {
-        val movieList = repository.getLocalMovies(position)
+        val movieList = repository.getOfflinePopularMovies(position)
 
         return if (movieList != null && !movieList.results.isNullOrEmpty()) {
             LoadResult.Page(
@@ -75,7 +76,7 @@ class MoviePagingSource(
 
     private fun saveDataToDB(movies: MovieDto?) {
         CoroutineScope(Dispatchers.IO).launch {
-            repository.saveDataToDb(movies)
+            repository.saveMoviesToDb(movies)
         }
     }
 

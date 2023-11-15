@@ -12,22 +12,27 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MovieDetailFragment : Fragment() {
 
-    private lateinit var _binding: FragmentMovieDetailBinding
-    private val binding get() = _binding
-    private val args: MovieDetailFragmentArgs by navArgs()
+    private var _binding: FragmentMovieDetailBinding? = null
 
+    private val binding get() = _binding
+
+    private val args: MovieDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         _binding = FragmentMovieDetailBinding.inflate(inflater, container, false)
-        return _binding.root
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.movie = args.movie
+        binding?.movie = args.movie
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

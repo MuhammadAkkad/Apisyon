@@ -5,7 +5,7 @@ import com.example.apisyon.data.model.MovieResultDto
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class Converters {
+class TypeConverter {
 
     @TypeConverter
     fun fromMovieResultsList(movieResults: List<MovieResultDto>?): String? {

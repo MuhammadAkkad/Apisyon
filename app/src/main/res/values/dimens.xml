@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Margins -->
+    <dimen name="margin_card">12dp</dimen>
+    <dimen name="margin_text">6dp</dimen>
+    <dimen name="card_radius">16dp</dimen>
+    <dimen name="margin_image_start">30dp</dimen>
+    <dimen name="margin_image_bottom">30dp</dimen>
+
+    <!-- Text Sizes -->
+    <dimen name="text_size_title">22sp</dimen>
+    <dimen name="text_size_year">16sp</dimen>
+    <dimen name="text_size_rating">16sp</dimen>
+    <dimen name="text_size_rank">18sp</dimen>
+
+    <!-- Padding -->
+    <dimen name="padding_start_text">12dp</dimen>
+    <dimen name="padding_elevation">2dp</dimen>
+
+    <!-- ImageView Dimensions -->
+    <dimen name="image_width">125dp</dimen>
+    <dimen name="image_height">150dp</dimen>
+    <dimen name="image_elevation">3dp</dimen>
+
+    <!-- Star Dimensions -->
+    <dimen name="star_width">24dp</dimen>
+    <dimen name="star_height">24dp</dimen>
+
+
+    <!-- List RV Dimensions -->
+    <dimen name="list_margin">32dp</dimen>
+
+</resources>
